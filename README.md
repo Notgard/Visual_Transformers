@@ -6,6 +6,8 @@ The repository contains two architectures : a normal ViT (inspired by specificat
 
 # Installation
 
+Create a virtual environment and install the necessary packages :
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -13,7 +15,10 @@ pip install -r requirements.txt
 Since this is a notebook, I advise you install a jupyter lab server on your own (https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html)
 
 # Training
-As for the easiest way to train the models available in the repo. You can either execute the entire notebook, which should work without any issues. Or you can use the SLURM job script available `train_job.sh` which simply execute the code of the notebook on a cluster with a given number of GPUs (distributed training has not been implemented in the code but would've been nice with `nn.DataParallel` but training seemed slower when testing because of the data synchronization overhead)
+As for the easiest way to train the models available in the repo. You can either execute the entire notebook, which should work without any issues. Or you can use the SLURM job script available `train_job.sh` which simply execute the code of the notebook (converted to python script) on a cluster with a given number of GPUs (distributed training has not been implemented in the code but would've been nice with `nn.DataParallel` but training seemed slower when testing because of the data synchronization overhead) with the following command :
+```bash
+sbatch train_job.sh
+```
 
 There are two notable aspects of the specific training of these models. As specified in the ["AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE"](https://arxiv.org/abs/2010.11929) paper : the optimizer (typically Adam for all-purpose training has been changed to SGD for smoother gradient descent) as well as the training momentum ([link](https://paperswithcode.com/method/sgd-with-momentum)) for faster and slightly more stable training.
 
