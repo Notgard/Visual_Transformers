@@ -2,7 +2,10 @@
 
 This repository contains an implementation of a visual transformer architecture from scratch using PyTorch  
 
-The repository contains two architectures : a normal ViT (inspired by specifications in the original Visual Transformers paper) as well as a TowerViT model (simple stacking of the transformer blocks, same as with the ViT model but where the dimensions stay static throughout) 
+The repository contains two architectures : a normal ViT (inspired by specifications in the original Visual Transformers paper) as well as a TowerViT model (simple stacking of the transformer blocks, same as with the ViT model but where the dimensions stay static throughout)
+
+![vit_arch](vit_arch.png)
+*Figure: Model overview of the ViT model architecture, shamelessly stolen from the orignal paper*
 
 # Installation
 
